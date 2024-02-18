@@ -1,0 +1,20 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+        - id: QUIZ-SERVICE
+          uri: lb://QUIZ-SERVICE
+          predicates:
+            - Path=/quiz/**, /quiz-test/**
+        - id: QUESTION-service
+          uri: lb://QUESTION-SERVICE
+          predicates:
+            - Path=/question/**
+
+# Replace quiz-service and question-service with your actual service names
