@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8086
 
 spring:
   application:
@@ -16,5 +16,9 @@ spring:
           uri: lb://QUESTION-SERVICE
           predicates:
             - Path=/question/**
+        - id: MOVIE-CATALOG-SERVICE
+          uri: lb://MOVIE-CATALOG-SERVICE
+          predicates:
+            - Path=/catalog/**,
 
 # Replace quiz-service and question-service with your actual service names
